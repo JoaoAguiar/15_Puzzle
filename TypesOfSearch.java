@@ -8,6 +8,8 @@ class TypesOfSearch {
     String start_board = initial_board.toString();
     String end_board = final_board.toString();
 
+    System.out.println(start_board + " | " + end_board);
+
     // Vai guardar as tabelas visitadas
     Set<String> visited_boards = new HashSet<String>();
     Queue<GameBoard> game_queue = new LinkedList<GameBoard>();
@@ -20,8 +22,9 @@ class TypesOfSearch {
       GameBoard board = game_queue.remove();
       visited++;
       generated--;
+      LinkedList<Integer> list_actions = board.getActions();
 
-      for(Integer board_action : board.getActions()) {
+      for(int board_action : list_actions) {
         GameBoard child = board.makeAction(board_action);
 
         if(!visited_boards.contains(child.toString())) {
@@ -89,8 +92,9 @@ class TypesOfSearch {
     else {
       visited_boards.add(board.toString());
       visited++;
+      LinkedList<Integer> list_actions = board.getActions();
 
-      for(Integer board_action : board.getActions()) {
+      for(int board_action : list_actions) {
         GameBoard child = board.makeAction(board_action);
         child.setParent(board);
 
@@ -129,8 +133,9 @@ class TypesOfSearch {
     while(!board_queue.isEmpty()) {
       GameBoard board = board_queue.remove();
       generated--;
+      LinkedList<Integer> list_actions = board.getActions();
 
-      for(Integer board_action : board.getActions()) {
+      for(int board_action : list_actions) {
         GameBoard child = board.makeAction(board_action);
 
         Heuristic.heuristicChoice(child, final_board, choice, 1);
@@ -166,8 +171,9 @@ class TypesOfSearch {
     while(!board_queue.isEmpty()) {
       GameBoard board = board_queue.remove();
       generated--;
+      LinkedList<Integer> list_actions = board.getActions();
 
-      for(int board_action : board.getActions()) {
+      for(int board_action : list_actions) {
         GameBoard child = board.makeAction(board_action);
 
         Heuristic.heuristicChoice(child, final_board, choice, 2);

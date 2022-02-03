@@ -47,7 +47,7 @@ class GameBoard {
   }
 
   // Fazer um movimento atravez de uma certa ação
-  public GameBoard makeActions(int action) {
+  public GameBoard makeAction(int action) {
     GameBoard new_board = new GameBoard(this.board);
     
     new_board.board[new_board.position_zero] = new_board.board[action];
