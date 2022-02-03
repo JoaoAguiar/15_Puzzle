@@ -7,3 +7,8 @@
 * IDFS: depth search, where the maximum depth is your limit
 *	A star: performs A star search
 * Greedy: performs Greedy search
+
+```
+javac Puzzle15.java
+java Puzzle15
+```
